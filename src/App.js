@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cursor from "react-awesome-cursor";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
