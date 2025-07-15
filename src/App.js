@@ -21,14 +21,6 @@ function App() {
 
   return (
     <>
-      {/* <Cursor
-  color="255,105,180"
-  dotSize={12}
-  ringSize={32}
-  ringAlpha={0.4}
-  dotAlpha={1}
-  ringScale={1.6}
-/> */}
       <Router>
         <Navbar toggleDarkMode={() => setDarkMode(!darkMode)} isDark={darkMode} />
         <Routes>
