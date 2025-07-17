@@ -1,151 +1,75 @@
 .resume-wrapper {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   min-height: 100vh;
-  background: radial-gradient(circle at top, #1a1a2e, #0f0f14);
+  background: linear-gradient(120deg, #1a1a2e 0%, #0f0f14 60%, #7f5af0 100%);
   color: #f1f1f1;
   text-align: center;
   position: relative;
   overflow: hidden;
+  animation: subtleFloat 14s ease-in-out infinite;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Glowing gradient blobs */
+/* Make the heading bigger and wider */
+.resume-wrapper h1,
+.resume-wrapper .resume-heading {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: headingFadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+/* Heading entrance animation */
+@keyframes headingFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Add multiple glowing blobs for depth */
 .resume-wrapper::before,
 .resume-wrapper::after {
   content: "";
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(120px);
   z-index: -1;
-  opacity: 0.15;
+  opacity: 0.18;
 }
+
 .resume-wrapper::before {
-  width: 300px;
-  height: 300px;
-  top: 10%;
-  left: 10%;
-  background: #7f5af0;
+  width: 350px;
+  height: 350px;
+  top: 5%;
+  left: 5%;
+  background: linear-gradient(135deg, #7f5af0 60%, #38bdf8 100%);
+  animation: blobMove1 12s ease-in-out infinite alternate;
 }
 .resume-wrapper::after {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   bottom: 10%;
   right: 10%;
-  background: #38bdf8;
+  background: linear-gradient(135deg, #38bdf8 60%, #7f5af0 100%);
+  animation: blobMove2 14s ease-in-out infinite alternate;
 }
 
-.resume-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-bottom: 4rem;
-  
-  animation: fadeZoomIn 1s ease-out;
+/* Extra blobs for more color (use pseudo-elements on a child element for more blobs if needed) */
+
+/* Blob animations */
+@keyframes blobMove1 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(40px) scale(1.1); }
 }
-
-.resume-title::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  margin: 1rem auto 0;
-  background: linear-gradient(to right, #7f5af0, #38bdf8);
-  border-radius: 10px;
-}
-
-
-.resume-actions {
-  margin-bottom: 2.5rem;
-}
-
-.resume-btn {
-  font-family: 'Bebas Neue', sans-serif;
-  background: linear-gradient(120deg, #7f5af0, #38bdf8);
-  color: white;
-  padding: 0.8rem 2.4rem;
-  font-weight: bold;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: 2rem;
-  display: inline-block;
-  box-shadow: 0 0 15px #7f5af055;
-}
-.resume-btn:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 25px #38bdf888;
-}
-
-
-.resume-viewer iframe {
-  width: 100%;
-  max-width: 850px;
-  height: 700px;
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-  animation: fadeInUp 1.2s ease;
-  background: #fff;
-}
-
-/* Animations */
-@keyframes fadeZoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .resume-title {
-    font-size: 2rem;
-  }
-
-  .resume-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
-  }
-
-  .resume-viewer iframe {
-    height: 500px;
-  }
-}
-
-
-
-
-.resume-title::before {
-  content: "📄";
-  margin-right: 0.6rem;
-  font-size: 2.4rem;
-  vertical-align: middle;
-  animation: bounceIcon 1.2s ease;
-}
-@keyframes bounceIcon {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-
-.resume-wrapper {
-  animation: subtleFloat 12s ease-in-out infinite;
-}
-@keyframes subtleFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+@keyframes blobMove2 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-30px) scale(1.05); }
 }

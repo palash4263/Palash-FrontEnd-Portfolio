@@ -9,6 +9,9 @@ import {
   SiOpenai,
 } from "react-icons/si";
 
+import { motion } from "framer-motion";
+
+
 export default function Home() {
   useEffect(() => {
     const cursor = document.createElement("div");
@@ -21,34 +24,63 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
+//   const techStack = [
+//   { Icon: FaReact, label: "React" },
+//   { Icon: FaNodeJs, label: "Node.js" },
+//   { Icon: SiNextdotjs, label: "Next.js" },
+//   { Icon: SiMongodb, label: "MongoDB" },
+//   { Icon: SiTailwindcss, label: "TailwindCSS" },
+//   { Icon: SiOpenai, label: "OpenAI" },
+// ];
+
   return (
     <div className="hero-wrapper">
       <div className="hero-inner">
         <h1 className="hero-heading">
-  <Typewriter
-    words={["Hi, I'm Palash Mishra "]}
-    loop={Infinity}
-    cursor
-    cursorStyle="|"
-    typeSpeed={90}
-    deleteSpeed={0}
-    delaySpeed={1500}
-  />
-</h1>
-        {/* 👉 Banner Image */}
-        <img
+          <Typewriter
+            words={["Hi, I'm Palash Mishra "]}
+            loop={Infinity}
+            cursor
+            cursorStyle="|"
+            typeSpeed={90}
+            deleteSpeed={0}
+            delaySpeed={1500}
+          />
+        </h1>
+        {/* 👉 Banner Image with animation on hover */}
+        <motion.img
           src="/palash-profile-image.jpeg"
           alt="Palash Banner"
           className="hero-banner"
+          initial={{ opacity: 0, scale: 0.8, y: 40 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          whileHover={{
+            scale: 1.08,
+            rotate: 6,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+          }}
         />
 
-        <h2 className="hero-subheading">
+        <motion.h2
+          className="hero-subheading"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.8 }}
+        >
           Crafting interactive, scalable front end solutions.
-        </h2>
+        </motion.h2>
 
-        <p className="hero-bio fade-in">
+        <motion.p
+          className="hero-bio"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.8 }}
+        >
           Bridging design with engineering, one component at a time.
-        </p>
+        </motion.p>
 
         <p className="typewriter-text fade-in">
           I’m a&nbsp;
@@ -69,22 +101,6 @@ export default function Home() {
             />
           </span>
         </p>
-
-        <p className="hero-subtitle fade-in">
-          Turning ideas into responsive, secure, and performant full-stack
-          applications.
-        </p>
-
-        {/* Skill Showcase */}
-        <div className="hero-tech-icons fade-in-up fade-in-delay-2">
-          <FaReact className="tech-icon-glow" />
-          <FaNodeJs className="tech-icon-glow" />
-          <SiNextdotjs className="tech-icon-glow" />
-          <SiMongodb className="tech-icon-glow" />
-          <SiTailwindcss className="tech-icon-glow" />
-          <SiOpenai className="tech-icon-glow" />
-        </div>
-
         <div className="hero-buttons fade-in">
           <a href="/projects" className="hero-btn primary">
             🚀 View Projects
