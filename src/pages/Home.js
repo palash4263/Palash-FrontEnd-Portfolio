@@ -1,14 +1,6 @@
 import React, { useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "./Home.css";
-import { FaReact, FaNodeJs } from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiMongodb,
-  SiTailwindcss,
-  SiOpenai,
-} from "react-icons/si";
-
 import { motion } from "framer-motion";
 
 
