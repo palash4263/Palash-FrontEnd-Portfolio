@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ProjectCard from "../components/ProjectCard";
 import "./Projects.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import {
   SiNextdotjs,
